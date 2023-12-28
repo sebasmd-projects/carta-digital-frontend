@@ -1,6 +1,9 @@
 {
   "compilerOptions": {
     "paths": {
+      "@app/*": ["/app/*"],
+      "@pages/*": ["/app/pages/*"],
+      "@public/*": ["/public/*"],
       "@/*": ["./*"]
     }
   }
