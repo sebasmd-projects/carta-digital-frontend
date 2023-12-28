@@ -5,7 +5,7 @@ This project is based on React and Django: It creates a digital menu for restaur
 ## How to Start the Project
 
 ```bash
-npm start
+npm install
 npm run dev
 ```
 
