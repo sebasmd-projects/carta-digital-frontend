@@ -1,10 +1,13 @@
 {
   "compilerOptions": {
     "paths": {
-      "@app/*": ["/app/*"],
-      "@pages/*": ["/app/pages/*"],
-      "@public/*": ["/public/*"],
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@app/*": ["./app/*"],
+      "@pages/*": ["./app/(pages)/*"],
+      "@admin/*": ["./app/(pages)/admin/*"],
+      "@client/*": ["./app/(pages)/client/*"],
+      "@public/*": ["./public/*"],
+      "@store/*": ["./store/*"],
     }
   }
 }

@@ -1,6 +1,6 @@
 export const metadata = {
-  title: "Carta digital - Cliente",
-  description: "Cliente",
+  title: "Carta digital - Admin",
+  description: "Admin",
 };
 
 export default function AdminPage() {
