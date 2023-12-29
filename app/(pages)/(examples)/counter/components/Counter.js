@@ -1,14 +1,23 @@
 "use client";
 
 import { useAppSelector } from "@/store";
-import { addOne, subtractOne } from "@/store/counter/counterSlice";
+import {
+  addOne,
+  initCounterState,
+  subtractOne,
+} from "@/store/counter/counterSlice";
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-// import { useState } from "react";
 
 export default function Counter({ value }) {
   // const [count, setCount] = useState(value);
   const count = useAppSelector((state) => state.counter.count);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(initCounterState(value));
+  }, [dispatch, value]);
+
   return (
     <>
       <span className="text-9xl">{count}</span>
