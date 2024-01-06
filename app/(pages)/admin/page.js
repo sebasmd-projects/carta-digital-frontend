@@ -1,4 +1,4 @@
-import AuthContext from "./authContext";
+import { AdminAuth } from "@admin/components/adminAuth";
 
 export const metadata = {
   title: "Carta digital - Admin",
@@ -6,5 +6,8 @@ export const metadata = {
 };
 
 export default function AdminPage() {
-  return <AuthContext>Admin Page</AuthContext>;
+  return (
+  <AdminAuth>
+    AdminPage
+  </AdminAuth>);
 }

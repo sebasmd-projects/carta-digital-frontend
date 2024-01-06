@@ -1,15 +1,44 @@
 {
   "compilerOptions": {
     "paths": {
-      "@/*": ["./*"],
-      "@api/*": ["./api/*"],
-      "@app/*": ["./app/*"],
-      "@pages/*": ["./app/(pages)/*"],
-      "@admin/*": ["./app/(pages)/admin/*"],
-      "@client/*": ["./app/(pages)/client/*"],
-      "@public/*": ["./public/*"],
-      "@store/*": ["./store/*"],
-      "@utils/*": ["./utils/*"],
+      // relative general paths
+      "@/*": [
+        "./*"
+      ],
+      "@app/*": [
+        "./app/*"
+      ],
+      "@public/*": [
+        "./public/*"
+      ],
+      
+      // relative page paths
+      "@pages/*": [
+        "./app/(pages)/*"
+      ],
+      "@admin/*": [
+        "./app/(pages)/admin/*"
+      ],
+      "@client/*": [
+        "./app/(pages)/client/*"
+      ],
+
+      // relative app paths
+      "@api/*": [
+        "./app/src/api/*"
+      ],
+      "@utils/*": [
+        "./app/src/utils/*"
+      ],
+      "@components/*": [
+        "./app/src/components/*"
+      ],
+      "@context/*": [
+        "./app/src/context/*"
+      ],
+      "@hooks/*": [
+        "./app/src/hooks/*"
+      ],
     }
   }
 }

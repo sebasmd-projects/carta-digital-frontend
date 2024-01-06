@@ -1,11 +1,11 @@
 import "@app/globals.scss";
-import { Providers } from "@store/Providers";
+import { AuthProvider } from "@context/AuthContext";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function RootLayout({ children }) {
   return (
-    <Providers>
+    <AuthProvider>
       <html lang="es-co">
         <body>
           <ToastContainer
@@ -21,6 +21,6 @@ export default function RootLayout({ children }) {
           {children}
         </body>
       </html>
-    </Providers>
+    </AuthProvider>
   );
 }
