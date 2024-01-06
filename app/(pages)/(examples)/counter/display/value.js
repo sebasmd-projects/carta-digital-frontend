@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { useAppSelector } from "@/store";
 
 export const DisplayValue = () => {

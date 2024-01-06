@@ -1,11 +1,16 @@
 "use client";
 
-import { LoginAPI } from "@/api/UserAPI";
+import { LoginAPI, usersMe, verifyToken } from "@/api/UserAPI";
+import { login } from "@/store/admin_auth/adminAuthSlice";
 import { Field, Formik } from "formik";
 import Link from "next/link";
+import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 import * as Yup from "yup";
 
 export default function LoginForm() {
+  const dispatch = useDispatch();
+
   const getInitialValues = {
     username: "",
     password: "",
@@ -36,15 +41,20 @@ export default function LoginForm() {
         validationSchema={getValidationSchema}
         onSubmit={async (formData) => {
           try {
-            const response = await LoginAPI(formData);
-            console.log(response);
+            const { access, user_id, refresh } = await LoginAPI(formData);
+            const isTokenValid = await verifyToken(access);
+            if (isTokenValid) {
+              const user = await usersMe(access);
+              dispatch(login({ access, user_id, refresh, user }));
+              toast.success("Inicio de sesión éxitoso");
+            }
+            router.push("/admin");
           } catch (error) {
-            console.log(error);
-            console.log("ERROR - Login API");
+            toast.error(error.message);
           }
         }}
       >
-        {({ errors, touched, handleSubmit, isSubmitting }) => (
+        {({ errors, touched, handleSubmit }) => (
           <form
             className="px-8 pt-6 pb-8 mb-4"
             method="POST"
@@ -94,7 +104,6 @@ export default function LoginForm() {
               <button
                 type="submit"
                 className="w-full h-12 bg-transparent hover:bg-green-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-green-500 hover:border-transparent rounded-lg"
-                disabled={isSubmitting}
               >
                 Iniciar sesión
               </button>

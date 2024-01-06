@@ -1,4 +1,4 @@
-import LoginAdminPage from "./login/page";
+import AuthContext from "./authContext";
 
 export const metadata = {
   title: "Carta digital - Admin",
@@ -6,8 +6,5 @@ export const metadata = {
 };
 
 export default function AdminPage() {
-  const auth = null;
-  if (!auth) return <LoginAdminPage />;
-
-  return <div>AdminPage</div>;
+  return <AuthContext>Admin Page</AuthContext>;
 }
