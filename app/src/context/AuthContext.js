@@ -46,9 +46,8 @@ export function AuthProvider({ children }) {
     logout,
   };
 
-  if (auth === undefined) {
-    return router.push("/admin");
-  }
+  //TODO redireccionar sin flash si el usuario se encuentra logeado
+  if (auth === undefined) return router.push("/admin");
 
   return (
     <AuthContext.Provider value={valueContext}>{children}</AuthContext.Provider>
